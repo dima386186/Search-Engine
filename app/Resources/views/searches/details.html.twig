@@ -1,0 +1,55 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <a type="button" class="btn btn-success" href="/">Back to searches</a>
+    <hr>
+    <h2 class="page-header">{{ search.name }}</h2>
+    <ul class="list-group">
+
+        {# search #}
+        <li class="list-group-item">category: <strong>&nbsp;&nbsp;&nbsp;{{ search.category }}</strong></li>
+        <li class="list-group-item">subcategory:
+            {% for key,value in search.subcategory %}
+
+                <strong>&nbsp;&nbsp;&nbsp;{{ value }}</strong>
+
+            {% endfor %}
+        </li>
+        <li class="list-group-item">job type: <strong>&nbsp;&nbsp;&nbsp;{{ search.jobType }}</strong></li>
+        <li class="list-group-item">budget: <strong>&nbsp;&nbsp;&nbsp;{{ search.budget }}</strong></li>
+        <li class="list-group-item">location: <strong>&nbsp;&nbsp;&nbsp;{{ search.location }}</strong></li>
+        <li class="list-group-item">Client history: <strong>&nbsp;&nbsp;&nbsp;{{ search.clientHistory }}</strong></li>
+        {#<li class="list-group-item">Keyword Search: <strong>&nbsp;&nbsp;&nbsp;{{ search.keywordSearch }}</strong></li>#}
+        <li class="list-group-item">Keyword Search In Any: <strong>&nbsp;&nbsp;&nbsp;{{ search.keywordSearchInAny }}</strong></li>
+        <li class="list-group-item">Keyword Search In Title: <strong>&nbsp;&nbsp;&nbsp;{{ search.keywordSearchInTitle }}</strong></li>
+        <li class="list-group-item">Keyword Search In Description: <strong>&nbsp;&nbsp;&nbsp;{{ search.keywordSearchInDescription }}</strong></li>
+        {#<li class="list-group-item">Stop Words: <strong>&nbsp;&nbsp;&nbsp;{{ search.stopWords }}</strong></li>#}
+        <li class="list-group-item">Stop Words In Any: <strong>&nbsp;&nbsp;&nbsp;{{ search.stopWordsInAny }}</strong></li>
+        <li class="list-group-item">Stop Words In Title: <strong>&nbsp;&nbsp;&nbsp;{{ search.stopWordsInTitle }}</strong></li>
+        <li class="list-group-item">Stop Words In Description: <strong>&nbsp;&nbsp;&nbsp;{{ search.stopWordsInDescription }}</strong></li>
+        <li class="list-group-item">skills: <strong>&nbsp;&nbsp;&nbsp;{{ search.skills }}</strong></li>
+        <li class="list-group-item">Verified payment: <strong>&nbsp;&nbsp;&nbsp;{{ search.verifiedPayment }}</strong></li>
+        <li class="list-group-item">Money spent: <strong>&nbsp;&nbsp;&nbsp;{{ search.moneySpent }}</strong></li>
+        <li class="list-group-item">Client preferred hours of experience: <strong>&nbsp;&nbsp;&nbsp;{{ search.clientPreferredHoursOfExperience }}</strong></li>
+        <li class="list-group-item">Client preferred freelancer location: <strong>&nbsp;&nbsp;&nbsp;{{ search.clientPreferredFreelancerLocation }}</strong></li>
+        <li class="list-group-item">Client english level preference: <strong>&nbsp;&nbsp;&nbsp;{{ search.clientEnglishLevelPreference }}</strong></li>
+        <li class="list-group-item">Client timezone: <strong>&nbsp;&nbsp;&nbsp;{{ search.clientTimezone }}</strong></li>
+        <li class="list-group-item">Chars in description: <strong>&nbsp;&nbsp;&nbsp;{{ search.charsInDescription }}</strong></li>
+        <li class="list-group-item">Client feedback score: <strong>&nbsp;&nbsp;&nbsp;{{ search.clientFeedbackScore }}</strong></li>
+        <li class="list-group-item">Experience level: <strong>&nbsp;&nbsp;&nbsp;{{ search.experienceLevel }}</strong></li>
+
+        {# filters #}
+        <li class="list-group-item">Filter job type: <strong>&nbsp;&nbsp;&nbsp;{{ search.filterJobType }}</strong></li>
+        <li class="list-group-item">Filter budget: <strong>&nbsp;&nbsp;&nbsp;{{ search.filterBudget }}</strong></li>
+        <li class="list-group-item">Filter experience level: <strong>&nbsp;&nbsp;&nbsp;{{ search.filterExperienceLevel }}</strong></li>
+        <li class="list-group-item">Filter client history: <strong>&nbsp;&nbsp;&nbsp;{{ search.filterClientHistory }}</strong></li>
+        <li class="list-group-item">Filter skills: <strong>&nbsp;&nbsp;&nbsp;{{ search.filterSkills }}</strong></li>
+        <li class="list-group-item">Filter money spent: <strong>&nbsp;&nbsp;&nbsp;{{ search.filterMoneySpent }}</strong></li>
+        <li class="list-group-item">Filter verified payment: <strong>&nbsp;&nbsp;&nbsp;{{ search.filterVerifiedPayment }}</strong></li>
+        <li class="list-group-item">Filter client feedback score: <strong>&nbsp;&nbsp;&nbsp;{{ search.filterClientFeedbackScore }}</strong></li>
+        <li class="list-group-item">Filter avg rate: <strong>&nbsp;&nbsp;&nbsp;{{ search.filterAvgRate }}</strong></li>
+        <li class="list-group-item">Filter hours billed: <strong>&nbsp;&nbsp;&nbsp;{{ search.filterHoursBilled }}</strong></li>
+        <li class="list-group-item">Filter client timezone: <strong>&nbsp;&nbsp;&nbsp;{{ search.filterClientTimezone }}</strong></li>
+        <li class="list-group-item">Filter stars: <strong>&nbsp;&nbsp;&nbsp;{{ search.filterStars }}</strong></li>
+    </ul>
+{% endblock %}

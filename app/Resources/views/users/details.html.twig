@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+	<a type="button" class="btn btn-success" href="/users">Back to users</a>
+	<hr>
+	<h2 class="page-header">{{ user.name }}</h2>
+	<ul class="list-group">
+		
+		<li class="list-group-item">Email: <strong>&nbsp;&nbsp;&nbsp;{{ user.email }}</strong></li>
+	</ul>
+{% endblock %}

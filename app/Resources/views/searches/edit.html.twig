@@ -1,0 +1,10 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <a type="button" class="btn btn-success" href="/">Back to searches</a>
+    <hr>
+    <h2 class="page-header">Update search</h2>
+    {{ form_start(form) }}
+    {{ form_widget(form) }}
+    {{ form_end(form) }}
+{% endblock %}

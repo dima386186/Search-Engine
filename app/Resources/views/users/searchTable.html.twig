@@ -1,0 +1,82 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h2 class="page-header">Result</h2>
+
+    <table class="table table-striped text-center" style="margin-left: -280px">
+        <tr>
+            <th>Job type</th>
+            <th>Client timezone</th>
+            <th>Budget</th>
+            <th>Candidates</th>
+            <th>URL</th>
+            <th>Client history</th>
+            <th>Skills</th>
+            <th>Verification status</th>
+            <th>Money spent</th>
+            <th>Work load</th>
+            <th>Freelancer location</th>
+            <th>English</th>
+            <th>Client feedback</th>
+            <th>Hours billed</th>
+            <th>Member since</th>
+            <th>Active interviewees</th>
+            <th>Rating</th>
+            <th>Avg rate</th>
+
+            {#<th>Description</th>#}
+            {#<th>Level</th>#}
+
+        </tr>
+
+        {% for search in searches %}
+
+            <tr>
+                <td>{{ search.job_type }}</td>
+                <td>{{ search.tymezone }}</td>
+                <td>{{ search.budget }}</td>
+                <td>{{ search.candidates }}</td>
+                <td><a href="{{ search.url }}">{{ search.url }}</a></td>
+                <td>{{ search.past_hires }}</td>
+                <td>
+                    {% for key,value in search.skills %}
+                        {{ value }}<br>
+                    {% endfor %}
+                </td>
+                <td>{{ search.verif_status }}</td>
+                <td>{{ search.total_charge }}</td>
+                <td>{{ search.workload }}</td>
+                <td>{{ search.pref_location }}</td>
+                {% if search.english == 1 %}
+                    <td>Basic</td>
+                {% elseif search.english == 2 %}
+                    <td>Conversational</td>
+                {% elseif search.english == 3 %}
+                    <td>Fluent</td>
+                {% elseif search.english == 4 %}
+                    <td>Native</td>
+                {% else %}
+                    <td>Not necessary</td>
+                {% endif %}
+                <td>{{ search.feedback }}</td>
+                <td>{{ search.total_hours }}</td>
+                <td>{{ search.member_since }}</td>
+                <td>{{ search.interviewees }}</td>
+                <td>{{ search.raiting }}</td>
+                <td>{{ search.avg_rate }}</td>
+
+                {#<td>{{ search.description }}</td>#}
+                {#<td>{{ search.level }}</td>#}
+
+            </tr>
+
+
+        {% endfor %}
+
+    </table>
+
+
+{% endblock %}
+
+
+

@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h2 class="page-header">Searches</h2>
+    <p>Запрос отправляется каждую 10 минуту (0,10,20,30...)</p>
+    <table class="table table-striped">
+        <thead>
+        <th>Name</th>
+        <th>Process</th>
+        <th></th>
+        <th></th>
+        </thead>
+        <tbody>
+        {% for search in searches %}
+            <tr>
+                <td>{{ search.name }} (created {{ search.user.name }})</td>
+                <td class="action">{{ search.action }}</td>
+                <td>
+                    <a type="button" href="searches/details/{{search.id}}" class="btn btn-success searchButtons">View</a>
+                    <a type="button" href="searches/edit/{{ search.id }}" class="btn btn-warning searchButtons">Edit</a>
+                    <a type="button" href="searches/delete/{{ search.id }}" class="btn btn-danger searchButtons">Delete</a>
+                    <button type="button" class="btn btn-primary duplicate searchButtons">Duplicate</button>
+                    <form action="/searches/duplicate" method="post" style="display: none">
+                        <input type="hidden" value="{{ search.id }}" name="hidden">
+                    </form>
+                    <a type="button" href="searches/start/{{ search.id }}" class="btn btn-success searchButtons" style="margin-left: 20px">Start</a>
+                    <a type="button" href="searches/stop/{{ search.id }}" class="btn btn-danger searchButtons">Stop</a>
+                    <a type="button" href="searches/newResult/{{ search.id }}" class="btn btn-info searchButtons">Result</a>
+                    <a type="button" href="searches/statistics/{{ search.id }}" class="btn btn-success searchButtons">Statistics</a>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <a type="button" class="btn btn-success" href="/">Back to searches</a>
+    <hr>
+    <h2 class="page-header">{{ search.name }}</h2>
+    <ul class="list-group">
+
+
+        <li class="list-group-item">Количество дней с момента создания поиска: <strong class="pull-right">&nbsp;&nbsp;&nbsp;  {{ countDay }} </strong></li>
+        <li class="list-group-item">Количество дней с момента последнего редактирования поиска: <strong class="pull-right">&nbsp;&nbsp;&nbsp; {{ countDayFromUpdate }} </strong></li>
+
+        {% for result in resultsAll %}
+            <li class="list-group-item">Количество работ отосланных с момента создания поиска: <strong class="pull-right">&nbsp;&nbsp;&nbsp; {{ result.results }} </strong></li>
+        {% endfor %}
+
+        {% for result in resultsToWeek %}
+            <li class="list-group-item">Количество работ отосланных по этому поиску за последнюю неделю: <strong class="pull-right">&nbsp;&nbsp;&nbsp; {{ result.results }} </strong></li>
+        {% endfor %}
+
+        {% for result in resultsToDay %}
+            <li class="list-group-item">Количество работ отосланных по этому поиску за последние сутки: <strong class="pull-right">&nbsp;&nbsp;&nbsp; {{ result.results }} </strong></li>
+        {% endfor %}
+
+    </ul>
+{% endblock %}

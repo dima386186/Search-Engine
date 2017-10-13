@@ -1,0 +1,21 @@
+th, td{
+    text-align: center;
+}
+
+.action{
+    font-weight: bold;
+    font-size: 20px;
+}
+
+#search_form_jobType,
+#search_form_verifiedPayment,
+#search_form_filterJobType,
+#search_form_filterVerifiedPayment,
+#search_form_category
+{
+    margin-bottom: 15px;
+}
+
+.error{
+    color: maroon;
+}

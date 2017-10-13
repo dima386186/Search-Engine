@@ -1,0 +1,12 @@
+# This file is auto-generated during the composer install
+parameters:
+    database_host: localhost
+    database_port: 3306
+    database_name: SearchEngine
+    database_user: root
+    database_password: 123456
+    mailer_transport: smtp
+    mailer_host: mail.upboost.net
+    mailer_user: upboost@upboost.net
+    mailer_password: 'FWlvb^gOZ4f*'
+    secret: 1232312qweqweqeqwe

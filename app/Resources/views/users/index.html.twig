@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+	<h2 class="page-header">Users</h2>
+	<table class="table table-striped">
+		<thead>
+			<th>№</th>
+			<th>Name</th>
+			<th></th>
+		</thead>
+		<tbody>
+			{% for user in users %}
+			<tr>
+				<td><strong>{{ loop.index }}</strong></td>
+				<td><strong>{{ user.name }}</strong></td>
+				<td>
+					<a type="button" href="users/details/{{user.id}}" class="btn btn-success">View</a>
+					<a type="button" href="users/edit/{{ user.id }}" class="btn btn-warning">Edit</a>
+					<a type="button" href="users/delete/{{ user.id }}" class="btn btn-danger">Delete</a>
+				</td>
+			</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+{% endblock %}

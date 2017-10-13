@@ -1,0 +1,98 @@
+{% extends 'base.html.twig' %}
+
+{% block table %}
+    <a type="button" class="btn btn-success" href="/">Back to searches</a>
+    <a type="button" class="btn btn-warning" href="{{ url('search_edit', { 'search': id }) }}">Edit search</a>
+    <hr>
+    <h2 class="page-header">Result</h2>
+    {% if results %}
+
+    <table class="table table-bordered text-center">
+    <tr>
+        <th>№</th>
+        <th>Stars</th>
+        <th>URL</th>
+        <th>Added</th>
+        <th>JobType</th>
+        <th>hrs/week</th>
+        <th>Budget</th>
+        <th>Payment status</th>
+        <th>Proposals</th>
+        <th>Interview</th>
+        <th>Hires</th>
+        <th>Hours billed</th>
+        <th>avg rate</th>
+        <th>Money Spent</th>
+        <th>Feedback</th>
+        <th>member since</th>
+        <th>English lvl</th>
+        <th>Expert lvl</th>
+        <th>Skills</th>
+        <th>Description</th>
+        <th>Pref. Location</th>
+        <th>Country</th>
+        <th>Client timezone</th>
+    </tr>
+
+    {% for result in results | sortbyfield('filterStars', 'desc') %}
+
+        <tr>
+            <td><strong>{{ loop.index }}</strong></td>
+            <td>{{ result.filterStars }}</td>
+            <td style="font-size: 10px"><a href="{{ result.url }}" target="_blank">{{ result.title }}</a></td>
+            <td>{{ result.createdAt|date("d.m.Y H:i:s") }}</td>
+            <td>{{ result.jobType }}</td>
+            <td>{{ result.workload }}</td>
+            <td>{{ result.budget }}$</td>
+            <td>{{ result.verifStatus }}</td>
+            <td>{{ result.candidates }}</td>
+            <td>{{ result.interviewees }}</td>
+            <td>{{ result.pastHires }}</td>
+            <td>{{ result.totalHours }}</td>
+            <td>
+                {% if result.avgRate != 0 %}
+                    {{ result.avgRate }}$
+                {% endif %}
+            </td>
+            <td>{{ result.totalCharge }}$</td>
+            <td>{{ result.feedback }}</td>
+            <td>{{ result.memberSince }}</td>
+            <td>
+                {% if result.english == 1 %}
+                    Basic
+                {% elseif result.english == 2 %}
+                    Conversational
+                {% elseif result.english == 3 %}
+                    Fluent
+                {% elseif result.english == 4 %}
+                    Native
+                {% else %}
+                    Not necessary
+                {% endif %}
+            </td>
+            <td>{{ result.level }}</td>
+            <td>
+                <button type="button" class="btn btn-success btn-xs viewSkills">
+                    <i class="fa fa-arrow-down" aria-hidden="true"></i>
+                    <i class="fa fa-arrow-up" aria-hidden="true"></i>
+                </button>
+                <div style="display: none">{{ result.skills }}</div></td>
+            <td>
+                <button type="button" class="btn btn-success btn-xs viewDescription">
+                    <i class="fa fa-arrow-down" aria-hidden="true"></i>
+                    <i class="fa fa-arrow-up" aria-hidden="true"></i>
+                </button>
+                <div style="display: none">{{ result.description }}</div>
+            </td>
+            <td>{{ result.prefLocation }}</td>
+            <td>{{ result.country }}</td>
+            <td>{{ result.tymezone }}</td>
+        </tr>
+
+    {% endfor %}
+</table>
+{% endif %}
+{% endblock %}
+
+
+
